@@ -1,8 +1,13 @@
 import os
 import time
+from dotenv import load_dotenv
 from waveshare_epd import epd2in13b_V3
 from PIL import Image, ImageDraw, ImageFont
 
+# Load Tokens, Fonts, and Pictures dir.
+load_dotenv()
+key = os.getenv('apiKey')
+secret = os.getenv('apiSecret')
 
 pic_dir = 'pic' # Points to pic directory.
 body = ImageFont.truetype(os.path.join(pic_dir, 'Roboyo-Black.ttc'), 18, index=5)
