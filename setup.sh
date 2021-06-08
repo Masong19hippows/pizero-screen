@@ -26,7 +26,7 @@ fi
 if [ -f .env ]; then
     read -p 'Do you wish to overwite existing Keys file? Type "Y" or "N":' yn
     case $yn in
-    [Yy]* ) echo "Type in your api key:"; read apiKey;  echo "Now, type in your api secret:"; read apiSecret; printf "apiKey=$apiKey\napiSecret=$apiSecret" > .env; exit;;
+    [Yy]* ) echo "Type in your Binance api key:"; read binanceKey; echo "Type in your Binance api secret:"; read binanceSecret; echo "Type in your Ameritrade consumer key"; read consumerKey; printf "apiKey=$binanceKey\napiSecret=$binanceSecret\nconsumerKey=$consumerKey" > creds/.env; exit;;
     [Nn]* ) exit;;
     esac
 else

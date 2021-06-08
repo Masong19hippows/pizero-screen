@@ -1,6 +1,7 @@
 import os
 import time
 from getbinance import price
+from getameritrade import amount
 from waveshare_epd import epd2in13b_V3
 from PIL import Image, ImageDraw, ImageFont
 
@@ -13,6 +14,5 @@ try:
     display = epd2in13b_V3.EPD()
     display.init(display.lut_full_update)
     display.Clear(0) # 0: Black, 255: White
-    # These valuse are reversed intentionally to make sense physically.
 except IOError as e:
     exit(e)
