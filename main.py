@@ -4,11 +4,8 @@ from getprice import price
 from waveshare_epd import epd2in13b_V3
 from PIL import Image, ImageDraw, ImageFont
 
-# Load Tokens, Fonts, and Pictures dir.
-
-
 pic_dir = 'pic' # Points to pic directory.
-body = ImageFont.truetype(os.path.join(pic_dir, 'Roboto-Black.ttf'), 18, index=5)
+body = ImageFont.truetype("Roboto-Black.ttf", 18, index=5)
 
 #Initlizing 2.13 Display
 try:
