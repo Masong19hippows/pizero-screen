@@ -26,7 +26,7 @@ fi
 if [ -f .env ]; then
     read -p 'Do you wish to overwite existing Keys file? Type "Y" or "N":' yn
     case $yn in
-    [Yy]* ) echo "Type in your api key:"; read apiKey;  echo "Now, type in your api secret:"; read apiSecret; printf "apiKey=$apiKey\napiSecret=$apiSecret" > .env; break;;
+    [Yy]* ) echo "Type in your api key:"; read apiKey;  echo "Now, type in your api secret:"; read apiSecret; printf "apiKey=$apiKey\napiSecret=$apiSecret" > .env; exit;;
     [Nn]* ) exit;;
     esac
 else
