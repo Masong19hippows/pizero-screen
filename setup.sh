@@ -7,7 +7,7 @@ if  [[ $1 = "-v" ]]; then
     sleep 2
     apt-get install python3-pip python3-pil python3-numpy -y
     sleep 2
-    python3 -m pip install RPi.GPIO spidev python-dotenv python-binance
+    python3 -m pip install RPi.GPIO spidev python-dotenv python-binance td-ameritrade-python-api
     sleep 2
     echo "All Done"
 else
@@ -17,7 +17,7 @@ else
     sleep 2
     apt-get install python3-pip python3-pil python3-numpy python-binance python-dotenv -y > /dev/null 2>&1
     sleep 2
-    python3 -m pip install RPi.GPIO spidev python-dotenv python-binance > /dev/null 2>&1
+    python3 -m pip install RPi.GPIO spidev python-dotenv python-binance td-ameritrade-python-api > /dev/null 2>&1
     sleep 2
     echo "All Done!"
 fi
@@ -30,10 +30,12 @@ if [ -f .env ]; then
     [Nn]* ) exit;;
     esac
 else
-    echo "Type in your api key:"
-    read apiKey
-    echo "Now, type in your api secret:"
-    read apiSecret
-    printf "apiKey=$apiKey\napiSecret=$apiSecret" > .env
+    echo "Type in your Binance api key:"
+    read binanceKey
+    echo "Type in your Binance api secret:"
+    read binanceSecret
+    echo "Type in your Ameritrade consumer key"
+    read consumerKey
+    printf "apiKey=$binanceKey\napiSecret=$binanceSecret\nconsumerKey=$consumerKey" > creds/.env
     exit
 fi

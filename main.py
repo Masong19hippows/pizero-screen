@@ -1,6 +1,6 @@
 import os
 import time
-from getprice import price
+from getbinance import price
 from waveshare_epd import epd2in13b_V3
 from PIL import Image, ImageDraw, ImageFont
 
