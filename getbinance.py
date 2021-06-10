@@ -32,9 +32,14 @@ def percent():
     sumHave = 0
     s = 0
     for item in client.get_account().get("balances"):
-        if item.get("asset") == "USD" or item.get("asset") == "USDT":
+        if float(item.get("free")) == 0 and float(item.get("locked")) == 0:
             continue
-        elif float(item.get("free")) == 0 and float(item.get("locked")) == 0:
+        elif item.get("asset") == "USD" or item.get("asset") == "USDT":
+            if float(item.get("locked")) == 0:
+                amount = float(item.get("free"))
+            else:
+                amount = float(item.get("locked"))
+            sumHave += amount
             continue
         else:
             if float(item.get("locked")) == 0:
