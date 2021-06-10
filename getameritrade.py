@@ -14,8 +14,16 @@ TDSession = TDClient(
 # Login to the session
 TDSession.login()
 
-def amount():
+def price():
     return TDSession.get_accounts()[0].get("securitiesAccount").get("currentBalances").get("liquidationValue")
 
 def percent():
-    return TDSession.get_accounts(fields=['positions'])[0].get("securitiesAccount").get("positions")[0].get("currentDayProfitLossPercentage")
+    s = 0
+    h = 0
+    for item in TDSession.get_accounts(fields=['positions'])[0].get("securitiesAccount").get("positions"):
+        amount = item.get("longQuantity") * item.get("averagePrice")
+        change = item.get("currentDayProfitLossPercentage")
+        h  += amount
+        s += change * amount
+    average = s / h
+    return round(average, 2)

@@ -1,7 +1,6 @@
 import os
-import time
-from getbinance import price
-from getameritrade import amount
+import getbinance as binance
+import getameritrade as ameritrade
 from waveshare_epd import epd2in13b_V3
 from PIL import Image, ImageDraw, ImageFont
 
@@ -14,5 +13,13 @@ try:
     display = epd2in13b_V3.EPD()
     display.init(display.lut_full_update)
     display.Clear(0) # 0: Black, 255: White
+    w = display.height
+    h = display.width
+    image = Image.new(mode='1', size=(w, h), color=255)
 except IOError as e:
     exit(e)
+
+def main():
+    image = Image.new(mode='1', size=(w, h), color=255)
+    draw = ImageDraw.Draw(image)
+    draw.text((0, 0), 'Coin: ' + binance.price(), font=body, fill=0, align='left')

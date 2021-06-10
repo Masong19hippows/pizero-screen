@@ -47,7 +47,7 @@ def percent():
             else:
                 amount = float(item.get("locked"))
         t = client.get_ticker(symbol=item.get("asset") + "USD")
-        h = float(t.get("lastPrice"))*amount
+        h = float(t.get("lastPrice")) * amount
         p = float(t.get("priceChangePercent"))
         sumHave += h
         s += p * h
