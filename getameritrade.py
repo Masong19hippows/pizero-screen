@@ -16,3 +16,6 @@ TDSession.login()
 
 def amount():
     return TDSession.get_accounts()[0].get("securitiesAccount").get("currentBalances").get("liquidationValue")
+
+def percent():
+    return TDSession.get_accounts(fields=['positions'])[0].get("securitiesAccount").get("positions")[0].get("currentDayProfitLossPercentage")
