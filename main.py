@@ -1,21 +1,22 @@
 import os
-# import getbinance as binance
-# import getameritrade as ameritrade
-from waveshare_epd import epd2in13b_V3
+import getbinance as binance
+import getameritrade as ameritrade
+from waveshare_epd import epd2in13bc
 from PIL import Image, ImageDraw, ImageFont
 
-pic_dir = 'pic' # Points to pic directory.
 body = ImageFont.truetype("Roboto-Black.ttf", 18)
 
 #Initlizing 2.13 Display
-try:
-    # Display init, clear
-    epd = epd2in13b_V3.EPD()
-    image = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
-    draw = ImageDraw.Draw(image)
-    draw.rectangle((0, 10, 200, 34), fill = 0)
-except IOError as e:
-    exit(e)
+# Display init, clear
+display = epd2in13bc.EPD()
+display.init()
+
+HBlackImage = Image.new('1', (epd2in13bc.EPD_HEIGHT, epd2in13bc.EPD_WIDTH), 255)
+HRedImage = Image.new('1', (epd2in13bc.EPD_HEIGHT, epd2in13bc.EPD_WIDTH), 255)
+
+draw = ImageDraw.Draw(HBlackImage)
+draw.text((0, 0), str(binance.price()), font = body, fill = 0)
+display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 
 def main():
     test = "test"
