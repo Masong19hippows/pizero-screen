@@ -15,7 +15,7 @@ TDSession = TDClient(
 TDSession.login()
 
 def price():
-    return TDSession.get_accounts()[0].get("securitiesAccount").get("currentBalances").get("liquidationValue")
+    return str(TDSession.get_accounts()[0].get("securitiesAccount").get("currentBalances").get("liquidationValue"))
 
 def percent():
     s = 0
@@ -26,4 +26,4 @@ def percent():
         h  += amount
         s += change * amount
     average = s / h
-    return round(average, 2)
+    return str(round(average, 2))

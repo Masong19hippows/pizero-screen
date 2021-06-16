@@ -19,5 +19,13 @@ HRedImage = Image.new('1', (epd2in13bc.EPD_HEIGHT, epd2in13bc.EPD_WIDTH), 255)
 display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 
 def main():
-    test = "test"
-    draw = ImageDraw.Draw(HBlackImage)
+    binancePrice = binance.price()
+    binancePercent = binance.percent()
+    ameritradePrice = ameritrade.price()
+    ameritradePercent = ameritrade.percent()
+    drawBlack = ImageDraw.Draw(HBlackImage)
+    drawRed = ImageDraw.Draw(HRedImage)
+
+    drawBlack.text((0, 0), "Binance: " + binancePrice,font=body, fill=0, align='left')
+    display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
+main()

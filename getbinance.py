@@ -26,7 +26,7 @@ def price():
             price += amount
         else:
             price += amount * float(client.get_symbol_ticker(symbol=item.get("asset") + "USD").get("price"))
-    return round(price, 2)
+    return str(round(price, 2))
 
 def percent():
     sumHave = 0
@@ -51,4 +51,4 @@ def percent():
         p = float(t.get("priceChangePercent"))
         sumHave += h
         s += p * h
-    return round(s / sumHave, 2)
+    return str(round(s / sumHave, 2))
