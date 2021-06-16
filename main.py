@@ -29,8 +29,8 @@ def main():
     drawBlack.text((0, 0), "Binance: " + binancePrice + "  ",font=body, fill=0, align='left')
 
     if float(binancePercent) < 0:
-        drawRed.text((0, 0), binancePercent,font=body, fill=0, align='right')
+        drawRed.text((0, 0), binancePercent + "%",font=body, fill=0, align='right')
     else:
-        drawRed.text((0, 0), binancePercent,font=body, fill=0, align='right')
+        drawRed.text((0, 0), binancePercent + "%",font=body, fill=0, align='right')
     display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 main()
