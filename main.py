@@ -27,5 +27,10 @@ def main():
     drawRed = ImageDraw.Draw(HRedImage)
 
     drawBlack.text((0, 0), "Binance: " + binancePrice,font=body, fill=0, align='left')
+
+    if float(binancePercent) < 0:
+        drawRed.text((0, 0), "Binance: " + binancePrice + "  " + binancePercent,font=body, fill=0, align='left')
+    else:
+        drawBlack.text((0, 0), "Binance: " + binancePrice + "  " + binancePercent,font=body, fill=0, align='left')
     display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 main()
