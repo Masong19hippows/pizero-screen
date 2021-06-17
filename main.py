@@ -46,8 +46,8 @@ def updateDisplay():
     ameritradePrice = ameritrade.price()
     ameritradePercent = ameritrade.percent()
 
-    drawBlack.text((100, 0), binancePrice,font=body, fill=0, align='left')
-    drawBlack.text((100, 50), ameritradePrice, font=body, fill=0, align='left')
+    drawBlack.text((95, 0), binancePrice,font=body, fill=0, align='left')
+    drawBlack.text((95, 50), ameritradePrice, font=body, fill=0, align='left')
 
     if float(binancePercent) < 0:
         drawRed.text((115, 20), binancePercent + "%",font=body, fill=0, align='left')
