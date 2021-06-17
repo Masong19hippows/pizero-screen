@@ -9,7 +9,7 @@ if  [[ $1 = "-v" ]]; then
     sleep 2
     python3 -m pip install RPi.GPIO spidev python-dotenv python-binance td-ameritrade-python-api
     sleep 2
-    echo "All Done"
+    echo "All Done Updating"
 else
     echo "Option -v Turned off"
     echo "Updating and instaling required packages..."
@@ -19,7 +19,7 @@ else
     sleep 2
     python3 -m pip install RPi.GPIO spidev python-dotenv python-binance td-ameritrade-python-api > /dev/null 2>&1
     sleep 2
-    echo "All Done!"
+    echo "All Done Updating!"
 fi
 
 #Get API key and Secret and add into .env file
@@ -39,5 +39,7 @@ else
     printf "binanceKey=$binanceKey\nbinanceSecret=$binanceSecret\nconsumerKey=$consumerKey" > creds/.env
     exit
 fi
+echo "Now adding crontab file"
 getameritrade.py
 printf "@reboot pi $DIR/main.py" > /etc/cron.d/screen
+echo "All Done. Have fun!"
