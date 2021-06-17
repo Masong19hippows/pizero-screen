@@ -40,4 +40,4 @@ else
     exit
 fi
 getameritrade.py
-printf "@reboot pi bash  $DIR/main.py" > /etc/cron.d/screen
+printf "@reboot pi $DIR/main.py" > /etc/cron.d/screen
