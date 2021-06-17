@@ -42,12 +42,13 @@ else:
 
 display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 
-def updateDisplay():
-    HBlackImage = ogBlack
-    HRedImage = ogRed
-    drawBlack = ImageDraw.Draw(HBlackImage)
-    drawRed = ImageDraw.Draw(HRedImage)
+HBlackImage = ogBlack
+HRedImage = ogRed
+drawBlack = ImageDraw.Draw(HBlackImage)
+drawRed = ImageDraw.Draw(HRedImage)
 
+def updateDisplay():
+    
     drawBlack.text((95, 0), binance.price(),font=body, fill=0, align='left')
     drawBlack.text((127, 50), ameritrade.price(), font=body, fill=0, align='left')
 
