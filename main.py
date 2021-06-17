@@ -60,3 +60,4 @@ def updateDisplay():
         drawBlack.text((115, 70), "+" + ameritradePercent + "%",font=body, fill=0, align='left')
 
     display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
+updateDisplay()
