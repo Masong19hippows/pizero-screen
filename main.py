@@ -31,7 +31,7 @@ drawBlack.text((0, 50), "Ameritrade: $", font=body, fill=0, align='left')
 ogBlack = HBlackImage.copy()
 ogRed = HRedImage.copy()
 drawBlack.text((95, 0), binancePrice,font=body, fill=0, align='left')
-drawBlack.text((128, 50), ameritradePrice, font=body, fill=0, align='left')
+drawBlack.text((127, 50), ameritradePrice, font=body, fill=0, align='left')
 if float(binancePercent) < 0:
     drawRed.text((115, 20), binancePercent + "%",font=body, fill=0, align='left')
 else:
@@ -52,9 +52,9 @@ def updateDisplay():
     HBlackImage = ogBlack
     HRedImage = ogRed
     drawBlack = ImageDraw.Draw(HBlackImage)
-    drawRed = ImageDraw.Draw(HBlackImage)
+    drawRed = ImageDraw.Draw(HRedImage)
     drawBlack.text((95, 0), binancePrice,font=body, fill=0, align='left')
-    drawBlack.text((128, 50), ameritradePrice, font=body, fill=0, align='left')
+    drawBlack.text((127, 50), ameritradePrice, font=body, fill=0, align='left')
 
     if float(binancePercent) < 0:
         drawRed.text((115, 20), binancePercent + "%",font=body, fill=0, align='left')
