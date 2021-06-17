@@ -43,6 +43,11 @@ else:
 display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 
 def updateDisplay():
+    HBlackImage = ogBlack.copy()
+    HRedImage = ogRed.copy()
+    drawBlack = ImageDraw.Draw(HBlackImage)
+    drawRed = ImageDraw.Draw(HRedImage)
+    
     drawBlack.text((95, 0), binance.price(),font=body, fill=0, align='left')
     drawBlack.text((126, 50), ameritrade.price(), font=body, fill=0, align='left')
 
@@ -64,9 +69,5 @@ def updateDisplay():
 
 while True:
     time.sleep(1)
-    HBlackImage = ogBlack
-    HRedImage = ogRed
-    drawBlack = ImageDraw.Draw(HBlackImage)
-    drawRed = ImageDraw.Draw(HRedImage)
     updateDisplay()
     
