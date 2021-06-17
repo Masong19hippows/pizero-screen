@@ -75,6 +75,9 @@ def updateDisplay(self, black, red):
     time.sleep(29)
 
 while True:
-    time.sleep(1)
-    updateDisplay(black=ogBlack, red=ogRed)
+    def __init__(self, black, red): 
+        self.black = ogBlack
+        self.red = ogRed
+        time.sleep(1)
+        updateDisplay(self.black, self.red)
     
