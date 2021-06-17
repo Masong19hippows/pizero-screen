@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from binance.client import Client
 
 # Loading api key and secret for Binance.US authentication.
-dir = os.getcwd()
+dir = os.path.dirname(os.path.realpath(__file__))
 load_dotenv(dir + "/creds/.env")
 key = os.getenv('binanceKey')
 secret = os.getenv('binanceSecret')

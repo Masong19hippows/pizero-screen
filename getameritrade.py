@@ -3,13 +3,11 @@ import os
 from dotenv import load_dotenv
 from td.client import TDClient
 
-dir = os.getcwd()
+dir = os.path.dirname(os.path.realpath(__file__))
 # Create a new session, credentials path is required.
 load_dotenv(dir + "/creds/.env")
-key = os.getenv('consumerKey')
-
 TDSession = TDClient(
-    client_id=key,
+    client_id=os.getenv('consumerKey'),
     redirect_uri='https://localhost',
     credentials_path=dir + '/creds/td_state.json'
 )
