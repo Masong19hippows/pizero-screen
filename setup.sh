@@ -26,8 +26,8 @@ fi
 if test -f creds/.env; then
     read -p 'Do you wish to overwite existing Keys file? Type "Y" or "N":' yn
     case $yn in
-    [Yy]* ) echo "Type in your Binance api key:"; read binanceKey; echo "Type in your Binance api secret:"; read binanceSecret; echo "Type in your Ameritrade consumer key"; read consumerKey; printf "binanceKey=$binanceKey\nbinanceSecret=$binanceSecret\nconsumerKey=$consumerKey" > creds/.env; exit;;
-    [Nn]* ) exit;;
+    [Yy]* ) echo "Type in your Binance api key:"; read binanceKey; echo "Type in your Binance api secret:"; read binanceSecret; echo "Type in your Ameritrade consumer key"; read consumerKey; printf "binanceKey=$binanceKey\nbinanceSecret=$binanceSecret\nconsumerKey=$consumerKey" > creds/.env; :;;
+    [Nn]* ) :;;
     esac
 else
     echo "Type in your Binance api key:"
@@ -37,9 +37,8 @@ else
     echo "Type in your Ameritrade consumer key"
     read consumerKey
     printf "binanceKey=$binanceKey\nbinanceSecret=$binanceSecret\nconsumerKey=$consumerKey" > creds/.env
-    exit
 fi
 echo "Now adding crontab file"
-getameritrade.py
+$DIR/getameritrade.py
 printf "@reboot pi $DIR/main.py" > /etc/cron.d/screen
 echo "All Done. Have fun!"
