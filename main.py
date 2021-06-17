@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 import time
 import getbinance as binance
@@ -31,14 +32,14 @@ ogRed = HRedImage.copy()
 drawBlack.text((95, 0), binance.price(),font=body, fill=0, align='left')
 drawBlack.text((126, 50), ameritrade.price(), font=body, fill=0, align='left')
 if float(binancePercent) < 0:
-    drawRed.text((115, 20), binancePercent + "%",font=body, fill=0, align='left')
+    drawRed.text((115, 25), binancePercent + "%",font=body, fill=0, align='left')
 else:
-    drawBlack.text((115, 20), "+" + binancePercent + "%",font=body, fill=0, align='left')
+    drawBlack.text((115, 25), "+" + binancePercent + "%",font=body, fill=0, align='left')
 
 if float(ameritradePercent) < 0:
-    drawRed.text((115, 70), ameritradePercent + "%",font=body, fill=0, align='left')
+    drawRed.text((115, 75), ameritradePercent + "%",font=body, fill=0, align='left')
 else:
-    drawBlack.text((115, 70), "+" + str(ameritradePercent) + "%",font=body, fill=0, align='left')
+    drawBlack.text((115, 75), "+" + str(ameritradePercent) + "%",font=body, fill=0, align='left')
 
 display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 
@@ -53,15 +54,15 @@ def updateDisplay():
 
     binancePercent = binance.percent()
     if float(binancePercent) < 0:
-        drawRed.text((115, 30), binancePercent + "%",font=body, fill=0, align='left')
+        drawRed.text((115, 25), binancePercent + "%",font=body, fill=0, align='left')
     else:
-        drawBlack.text((115, 30), "+" + binancePercent + "%",font=body, fill=0, align='left')
+        drawBlack.text((115, 25), "+" + binancePercent + "%",font=body, fill=0, align='left')
     
     ameritradePercent = ameritrade.percent()
     if float(ameritradePercent) < 0:
-        drawRed.text((115, 80), ameritradePercent + "%",font=body, fill=0, align='left')
+        drawRed.text((115, 75), ameritradePercent + "%",font=body, fill=0, align='left')
     else:
-        drawBlack.text((115, 80), "+" + ameritradePercent + "%",font=body, fill=0, align='left')
+        drawBlack.text((115, 75), "+" + ameritradePercent + "%",font=body, fill=0, align='left')
 
     display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 
