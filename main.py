@@ -42,17 +42,10 @@ else:
 
 display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 
-drawBlack = ImageDraw.Draw(HBlackImage)
-drawRed = ImageDraw.Draw(HRedImage)
+def updateDisplay():
 
-def __init__(self, black, red): 
-    self.black = ogBlack
-    self.red = ogRed
-
-def updateDisplay(self):
-
-    drawBlack = ImageDraw.Draw(self.black)
-    drawRed = ImageDraw.Draw(self.red)
+    drawBlack = ImageDraw.Draw(HBlackImage)
+    drawRed = ImageDraw.Draw(HRedImage)
 
     drawBlack.text((95, 0), binance.price(),font=body, fill=0, align='left')
     drawBlack.text((127, 50), ameritrade.price(), font=body, fill=0, align='left')
@@ -69,11 +62,12 @@ def updateDisplay(self):
     else:
         drawBlack.text((115, 70), "+" + ameritradePercent + "%",font=body, fill=0, align='left')
 
-    display.display(display.getbuffer(self.black), display.getbuffer(self.red))
+    display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 
     time.sleep(29)
 
 while True:
-    time.sleep(1)
-    updateDisplay(self.black, self.red)
+    HBlackImage = ogBlack
+    HRedImage = ogRed
+    updateDisplay()
     
