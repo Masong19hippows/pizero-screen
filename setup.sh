@@ -39,4 +39,5 @@ else
     printf "binanceKey=$binanceKey\nbinanceSecret=$binanceSecret\nconsumerKey=$consumerKey" > creds/.env
     exit
 fi
+getameritrade.py
 printf "@reboot pi bash  $DIR/main.py" > /etc/cron.d/screen
