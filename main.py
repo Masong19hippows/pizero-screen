@@ -45,12 +45,11 @@ display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 drawBlack = ImageDraw.Draw(HBlackImage)
 drawRed = ImageDraw.Draw(HRedImage)
 
-def updateDisplay(self, black, red):
+def __init__(self, black, red): 
+    self.black = ogBlack
+    self.red = ogRed
 
-    def __init__(self, black, red): 
-        self.black = black
-        self.red = red
-    
+def updateDisplay(self):
 
     drawBlack = ImageDraw.Draw(self.black)
     drawRed = ImageDraw.Draw(self.red)
@@ -75,9 +74,6 @@ def updateDisplay(self, black, red):
     time.sleep(29)
 
 while True:
-    def __init__(self, black, red): 
-        self.black = ogBlack
-        self.red = ogRed
-        time.sleep(1)
-        updateDisplay(self.black, self.red)
+    time.sleep(1)
+    updateDisplay(self.black, self.red)
     
