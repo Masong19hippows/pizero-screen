@@ -6,7 +6,7 @@ from waveshare_epd import epd2in13bc
 from PIL import Image, ImageDraw, ImageFont
 
 # Creates font and points to pic directory
-body = ImageFont.truetype("pic/Roboto-Black.ttf", 20)
+body = ImageFont.truetype("pic/Roboto-Black.ttf", 22)
 
 #Initlizing 2.13 Display
 # Display init, clear
