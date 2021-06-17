@@ -36,7 +36,7 @@ def main():
     if float(ameritradePercent) < 0:
         drawRed.text((125, 70), ameritradePercent + "%",font=body, fill=0, align='left')
     else:
-         drawBlack.text((125, 70), "+" + ameritradePercent + "%",font=body, fill=0, align='left')
+         drawBlack.text((125, 70), "+" + str(ameritradePercent) + "%",font=body, fill=0, align='left')
 
     display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 main()
