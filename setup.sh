@@ -41,8 +41,7 @@ else
     printf "binanceKey=$binanceKey\nbinanceSecret=$binanceSecret\nconsumerKey=$consumerKey" > creds/.env
 fi
 echo "Now Authorizing Ameritrade"
-sleep 2
-$DIR/getameritrade.py > /dev/null 2>&1
+$DIR/getameritrade.py
 echo "Now adding crontab"
 sleep 2
 printf "@reboot pi $DIR/main.py" > /etc/cron.d/screen
