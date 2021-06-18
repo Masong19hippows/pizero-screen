@@ -23,7 +23,7 @@ else
 fi
 
 #Get API key and Secret and add into .env file
-if test -f creds/.env; then
+if test -f $DIR/creds/.env; then
     echo 'Do you wish to overwite existing Key file?'
     select yn in "Yes" "No"; do
         case $yn in
@@ -38,7 +38,7 @@ else
     read binanceSecret
     echo "Type in your Ameritrade consumer key"
     read consumerKey
-    printf "binanceKey=$binanceKey\nbinanceSecret=$binanceSecret\nconsumerKey=$consumerKey" > creds/.env
+    printf "binanceKey=$binanceKey\nbinanceSecret=$binanceSecret\nconsumerKey=$consumerKey" > $DIR/creds/.env
 fi
 echo "Now Authorizing Ameritrade"
 $DIR/getameritrade.py
