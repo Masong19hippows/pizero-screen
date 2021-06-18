@@ -46,6 +46,8 @@ else:
     drawBlack.text((115, 75), "+" + str(ameritradePercent) + "%",font=body, fill=0, align='left')
 
 # Writing to display
+drawBlack.transpose(Image.ROTATE_180)
+drawRed.transpose(Image.ROTATE_180)
 display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 
 def updateDisplay():
@@ -74,7 +76,9 @@ def updateDisplay():
     else:
         drawBlack.text((115, 75), "+" + ameritradePercent + "%",font=body, fill=0, align='left')
 
-# Displaying changes to screen
+# Displaying changes to screen and rotaing it 180 degrees
+    drawBlack.transpose(Image.ROTATE_180)
+    drawRed.transpose(Image.ROTATE_180)
     display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
 
 # Adding countdown timer untill next exec
