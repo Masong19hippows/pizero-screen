@@ -46,12 +46,12 @@ else:
     drawBlack.text((115, 75), "+" + str(ameritradePercent) + "%",font=body, fill=0, align='left')
 
 # Writing to display
-HBlackImage.rotate(180,  expand=1)
-HRedImage.rotate(180,  expand=1)
-display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
+rotatedBlackImage = HBlackImage.rotate(180,  expand=1)
+rotatedRedImage = HRedImage.rotate(180,  expand=1)
+display.display(display.getbuffer(rotatedBlackImage), display.getbuffer(rotatedRedImage))
 
 def updateDisplay():
-    
+
 # Restoring from copy made earlier
     HBlackImage = ogBlack.copy()
     HRedImage = ogRed.copy()
@@ -61,7 +61,7 @@ def updateDisplay():
 # Updating Prices for ameritrade and binance to screen
     drawBlack.text((95, 0), binance.price(),font=body, fill=0, align='left')
     drawBlack.text((126, 50), ameritrade.price(), font=body, fill=0, align='left')
-    
+
 # Updating binance percent to screen
     binancePercent = binance.percent()
     if float(binancePercent) < 0:
@@ -77,14 +77,14 @@ def updateDisplay():
         drawBlack.text((115, 75), "+" + ameritradePercent + "%",font=body, fill=0, align='left')
 
 # Displaying changes to screen and rotaing it 180 degrees
-    HBlackImage.rotate(180,  expand=1)
-    HRedImage.rotate(180,  expand=1)
-    display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
+    rotatedBlackImage = HBlackImage.rotate(180,  expand=1)
+    rotatedRedImage = HRedImage.rotate(180,  expand=1)
+    display.display(display.getbuffer(rotatedBlackImage), display.getbuffer(rotatedRedImage))
 
 # Adding countdown timer untill next exec
-    time.sleep(1 * 60)
+    time.sleep(1)
 
 # Creates a loop to update the display
 while True:
+    time.sleep(1 * 60)
     updateDisplay()
-    
