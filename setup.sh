@@ -44,5 +44,5 @@ echo "Now Authorizing Ameritrade"
 $DIR/getameritrade.py
 echo "Now adding crontab"
 sleep 2
-printf "@reboot pi $DIR/main.py\n" > /etc/cron.d/screen
+printf "@reboot pi $DIR/main.py &\n" > /etc/cron.d/screen
 echo "All Done. Have fun!"

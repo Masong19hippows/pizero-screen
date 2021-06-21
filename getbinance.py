@@ -33,21 +33,24 @@ def percent():
     sumHave = 0
     s = 0
     for item in client.get_account().get("balances"):
-        if float(item.get("free")) == 0 and float(item.get("locked")) == 0:
+        free = float(item.get("free"))
+        locked = float(item.get("locked"))
+        asset = item.get("asset")
+        if free == 0 and locked == 0:
             continue
-        elif item.get("asset") == "USD" or item.get("asset") == "USDT":
-            if float(item.get("locked")) == 0:
-                amount = float(item.get("free"))
+        elif asset == "USD" or asset == "USDT":
+            if locked == 0:
+                amount = free
             else:
-                amount = float(item.get("locked"))
+                amount = locked
             sumHave += amount
             continue
         else:
-            if float(item.get("locked")) == 0:
-                amount = float(item.get("free"))
+            t = client.get_ticker(symbol=asset + "USD")
+            if locked == 0:
+                amount = free
             else:
-                amount = float(item.get("locked"))
-        t = client.get_ticker(symbol=item.get("asset") + "USD")
+                amount = locked
         h = float(t.get("lastPrice")) * amount
         p = float(t.get("priceChangePercent"))
         sumHave += h
