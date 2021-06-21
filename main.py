@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import time
 import os
+import time
 import getbinance as binance
 import getameritrade as ameritrade
 from waveshare_epd import epd2in13bc
@@ -18,7 +18,6 @@ display.init()
 HBlackImage = Image.new('1', (epd2in13bc.EPD_HEIGHT, epd2in13bc.EPD_WIDTH), 255)
 HRedImage = Image.new('1', (epd2in13bc.EPD_HEIGHT, epd2in13bc.EPD_WIDTH), 255)
 display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
-time.sleep(5)
 
 # Making variables with prices to save on API calls
 binancePercent = binance.percent()

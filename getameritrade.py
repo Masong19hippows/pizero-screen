@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 import os
+import  time
 from dotenv import load_dotenv
 from td.client import TDClient
 
+time.sleep(5)
 dir = os.path.dirname(os.path.realpath(__file__))
 # Create a new session, credentials path is required.
 load_dotenv(dir + "/creds/.env")
