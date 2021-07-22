@@ -1,5 +1,5 @@
 # What is this?
-This is my code for the Raspberry Pi Zero W 2.13 BWR e-ink screen
+This is my code for the Raspberry Pi Zero W 2.13 inch e-ink screen
 
 ## Purpose
 The purpose of this project is to be a simple run and go script that updates the display every minute with stocks information. The stocks that are supported are binance and TDAmeritrade. This python project grabs the latest price and percent change info for all stocks on both of these platforms. 
