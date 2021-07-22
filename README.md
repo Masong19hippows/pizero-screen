@@ -5,7 +5,7 @@ This is my code for the Raspberry Pi Zero W 2.13 inch e-ink screen
 The purpose of this project is to be a simple run and go script that updates the display every minute with stocks information. The stocks that are supported are binance and TDAmeritrade. This python project grabs the latest price and percent change info for all stocks on both of these platforms. 
 
 ## Setup
-The setup is stupidly simple. Just run these instructions in any directory that you want th folder installed in. Yoou will need a binance api key and secret, as well as an TDAmeritrade api key.
+The setup is stupidly simple. Just run these instructions in any directory that you want the folder installed in. Yoou will need a binance api key and secret, as well as an TDAmeritrade api key.
 
 `# git clone https://github.com/masong19hippows/pizero-screen`
 
