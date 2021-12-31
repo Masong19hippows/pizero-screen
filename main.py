@@ -17,7 +17,7 @@ display.init()
 # Creating variables to controll screen and clearing screen
 HBlackImage = Image.new('1', (epd2in13bc.EPD_HEIGHT, epd2in13bc.EPD_WIDTH), 255)
 HRedImage = Image.new('1', (epd2in13bc.EPD_HEIGHT, epd2in13bc.EPD_WIDTH), 255)
-display.display(display.getbuffer(HBlackImage), display.getbuffer(HRedImage))
+display.Clear()
 
 # Making variables with prices to save on API calls
 binancePercent = binance.percent()
